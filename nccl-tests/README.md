@@ -1,3 +1,14 @@
+This directory includes a snapshot of NVIDIA's nccl-tests microbenchmarking software at commit hash: 88d7e332076634075db100a90b232bd9107e5e13
+
+The only added content is:
+1. `modules.sh`: A script to load the proper modules on Perlmutter, `source modules.sh`.
+2. `build_perlmutter.sh`: A script to build nccl-tests on Perlmutter, `bash build_permutter.sh`.
+3. `run_allreduce_16gpu.sh`: A script to run an example benchmark on 16 GPUs, tested in a Perlmutter interactive job.
+
+# ORIGINAL README BELOW
+
+---
+
 # NCCL Tests
 
 These tests check both the performance and the correctness of [NCCL](http://github.com/nvidia/nccl) operations.
