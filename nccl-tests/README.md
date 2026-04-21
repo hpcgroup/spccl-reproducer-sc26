@@ -5,6 +5,8 @@ The only added content is:
 2. `build_perlmutter.sh`: A script to build nccl-tests on Perlmutter, `bash build_permutter.sh`.
 3. `run_allreduce_16gpu.sh`: A script to run an example benchmark on 16 GPUs, tested in a Perlmutter interactive job.
 
+Additional benchmarking scripts described in ../spccl-bench use the nccl-tests harnesses built here.
+
 # ORIGINAL README BELOW
 
 ---
