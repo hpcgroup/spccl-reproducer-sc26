@@ -1,4 +1,4 @@
-This directory includes a snapshot of NVIDIA's nccl-tests microbenchmarking software at commit hash: 88d7e332076634075db100a90b232bd9107e5e13
+This directory includes a snapshot of NVIDIA's nccl-tests microbenchmarking software (https://github.com/NVIDIA/nccl-tests) at commit hash: 88d7e332076634075db100a90b232bd9107e5e13
 
 The only added content is:
 1. `modules.sh`: A script to load the proper modules on Perlmutter, `source modules.sh`.
