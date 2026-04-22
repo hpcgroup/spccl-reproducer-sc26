@@ -88,7 +88,4 @@ Parsed from nccl-tests stdout, one row per `(message_size, blocking_mode)`:
 - `n_channels` — `NCCL_MIN/MAX_NCHANNELS` value (`0` if unset)
 - `blocking` — `1` for blocking API (`-z 1`), `0` for nonblocking. Paper plots report blocking time.
 - `message_size_mib` — message size in MiB
-- `time_us_oop`, — out-of-place execution time (μs), which is the timer used for NCCL results in the paper
-
-`busbw` (bus bandwidth) is the metric to compare across GPU counts; it normalizes for collective topology (see nccl-tests documentation for the per-collective formula).
-
+- `time_us_oop`, — out-of-place execution time (μs), which is the timer used for NCCL results in the paper.
