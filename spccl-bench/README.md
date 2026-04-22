@@ -61,7 +61,7 @@ are enumerated below.
 - `sparsity_pct` — target sparsity in percent (0 = dense, 99 = 99% zeros)
 - `uniform_sparsity` — `1` if every rank has identical sparsity patterns; `0` if sparsity is randomized per rank
 
-**NCCL/NCCLX configuration**
+**SpCCL/NCCLX configuration**
 - `n_channels` — value of `NCCL_MIN/MAX_NCHANNELS` for the run (`0` if unset). These are set to the same value in
 microbenchmarks to fix a channel count.
 - `nccl_ccd_format_mask` — value of `NCCL_CCD_FORMAT_MASK` (1=dense-only, 2=COO non-adaptive, 3=COO adaptive, 4=SPOP/Pici non-adaptive, 5=SPOP/Pici adaptive). "Adaptive" means that the collective may swap data to a dense format during collective execution (relevant to reduce-scatter and all-reduce).
