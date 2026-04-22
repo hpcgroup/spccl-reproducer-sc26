@@ -55,45 +55,45 @@ export FI_CXI_DISABLE_HMEM_DEV_REGISTER=1
 
 unset MPICH_GPU_SUPPORT_ENABLED
 cd ../nccl-tests
-echo "nccl-tests dir: $(pwd), binary: ./build/allreduce_perf_mpi"
-ls -la ./build/allreduce_perf_mpi
+echo "nccl-tests dir: $(pwd), binary: ./build/all_reduce_perf_mpi"
+ls -la ./build/all_reduce_perf_mpi
 unset NCCL_CCD_FORMAT_MASK
 # nccl-tests: blocking
 unset NCCL_MIN_NCHANNELS
 unset NCCL_MAX_NCHANNELS
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 268435456 -e 268435456 -z 1 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 268435456 -e 268435456 -z 1 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=1 -v mib=256.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 536870912 -e 536870912 -z 1 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 536870912 -e 536870912 -z 1 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=1 -v mib=512.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 1073741824 -e 1073741824 -z 1 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 1073741824 -e 1073741824 -z 1 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=1 -v mib=1024.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 2147483648 -e 2147483648 -z 1 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 2147483648 -e 2147483648 -z 1 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=1 -v mib=2048.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 # nccl-tests: nonblocking
 unset NCCL_MIN_NCHANNELS
 unset NCCL_MAX_NCHANNELS
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 268435456 -e 268435456 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 268435456 -e 268435456 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=0 -v mib=256.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 536870912 -e 536870912 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 536870912 -e 536870912 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=0 -v mib=512.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 1073741824 -e 1073741824 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 1073741824 -e 1073741824 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=0 -v mib=1024.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 srun -N 4 -n 16 --ntasks-per-node=4 -c 32 --cpu-bind=cores --mem-bind=local \
-    ./build/allreduce_perf_mpi -g 1 -b 2147483648 -e 2147483648 -d float -n $ITERS -w $WARMUPS | \
+    ./build/all_reduce_perf_mpi -g 1 -b 2147483648 -e 2147483648 -d float -n $ITERS -w $WARMUPS | \
     tee /dev/stderr | \
     awk -v jobid=$JOBID -v coll=ar -v dt=fp32 -v nch=0 -v blk=0 -v mib=2048.0 -v ng=$N_GPUS -v tag="$TAG" -v dtime="$DATETIME" 'NR>2 && /^[[:space:]]*[0-9]/ {print jobid","coll","dt","nch","blk","mib","ng","$6","$7","$8","$10","$11","$12","tag","dtime}' >> $NCCL_CSV
 echo "=== nccl-tests done ==="
