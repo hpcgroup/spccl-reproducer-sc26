@@ -2,7 +2,10 @@
 
 This is a snapshot of the microbenchmarking harness used to evaluate
 SpCCL, NCCLX, and SparCML. On Perlmutter, the following will build
-the binaries necessary for experiment reproduction.
+the binaries necessary for experiment reproduction. SpCCL, NCCLX,
+and nccl-tests should be built first (instructions in sibling directories
+`torchcomms-sparse`, `torchcomms-baseline`, and `nccl-tests`). Building
+all harnesses here should take <5 minutes.
 
 ```
 source modules.sh
