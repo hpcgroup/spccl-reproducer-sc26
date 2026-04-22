@@ -59,7 +59,7 @@ are enumerated below.
 - `val_bytes` — bytes per value (4 for fp32, 2 for fp16)
 - `dense_bytes` — total dense tensor size (`C * val_bytes`)
 - `sparsity_pct` — target sparsity in percent (0 = dense, 99 = 99% zeros)
-- `uniform_sparsity` — `1` if every rank has identicaly sparsity patterns; `0` if sparsity is randomized per rank
+- `uniform_sparsity` — `1` if every rank has identical sparsity patterns; `0` if sparsity is randomized per rank
 
 **NCCL/NCCLX configuration**
 - `n_channels` — value of `NCCL_MIN/MAX_NCHANNELS` for the run (`0` if unset). These are set to the same value in
