@@ -1,3 +1,24 @@
+# NCCLX
+
+This is a snapshot of a fork of the NCCLX collective communication
+library (https://github.com/meta-pytorch/torchcomms at commit hash:
+01b4acf48d9e03c0b7dd1864b642e3ee6c7e0f53). Library functionality
+is unmodified, but build scripts are added to facilitate building
+on NERSC's Perlmutter. The C++ library (comms/ncclx/v2_28) can be
+built by running:
+
+```
+source modules.sh
+bash first_time_build.sh
+```
+
+The `INSTALL_PREFIX` in first_time_build.sh should be changed to
+a directory the user has read and write permissions for.
+
+ORIGINAL README BELOW
+
+---
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="logo-dark.png">
