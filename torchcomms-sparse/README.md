@@ -14,6 +14,10 @@ bash first_time_build.sh
 The `INSTALL_PREFIX` in first_time_build.sh should be changed to
 a directory the user has read and write permissions for.
 
+ORIGINAL README BELOW
+
+---
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="logo-dark.png">
