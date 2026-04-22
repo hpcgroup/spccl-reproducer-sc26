@@ -86,7 +86,7 @@ Parsed from nccl-tests stdout, one row per `(message_size, blocking_mode)`:
 - `jobid`, `tag`, `n_gpus`, `dtype` — same meaning as above
 - `collective` — `ag`, `rs`, or `ar`
 - `n_channels` — `NCCL_MIN/MAX_NCHANNELS` value (`0` if unset)
-- `blocking` — `1` for blocking API (`-z 1`), `0` for nonblocking
+- `blocking` — `1` for blocking API (`-z 1`), `0` for nonblocking. Paper plots report blocking time.
 - `message_size_mib` — message size in MiB
 - `time_us_oop`, — out-of-place execution time (μs), which is the timer used for NCCL results in the paper
 
