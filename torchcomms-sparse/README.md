@@ -1,3 +1,19 @@
+# SpCCL
+
+This is a snapshot of an implementation of the SpCCL sparse collective
+communication library (https://github.com/ldhough/torchcomms-sparse),
+forked from NCCLX (original README below). The Python API is unmodified,
+only the underlying C++ library (comms/ncclx/v2_28) is modified. It can
+be built on NERSC's Perlmutter (as of 04/22/26) by running:
+
+```
+source modules.sh
+bash first_time_build.sh
+```
+
+The `INSTALL_PREFIX` in first_time_build.sh should be changed to
+a directory the user has read and write permissions for.
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="logo-dark.png">

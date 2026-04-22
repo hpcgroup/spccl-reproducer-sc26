@@ -1,3 +1,5 @@
+module load nccl/2.24.3
+
 export NCCL_NET_GDR_LEVEL=PHB
 export NCCL_SOCKET_IFNAME=hsn
 export CUDA_VISIBLE_DEVICES=3,2,1,0
