@@ -30,4 +30,8 @@ All paper experiments were carried out on NERSC's Perlmutter, and reproducibilit
 2. `torchcomms-baseline` (NCCLX)
 3. `nccl-tests`
 
-`torchcomms-sparse` may take as long as two hours to build on Perlmutter login nodes. `torchcomms-baseline` can reuse some third party dependencies, so the build may be somewhat faster. `nccl-tests` and `spccl-bench` microbenchmarking harnesses build in less than five minutes.
+`spccl-bench` microbenchmark harnesses may then be built. `torchcomms-sparse` may take as long as two hours to build on Perlmutter login nodes. `torchcomms-baseline` can reuse some third party dependencies, so the build may be somewhat faster. `nccl-tests` and `spccl-bench` microbenchmarking harnesses build in less than five minutes.
+
+## Execution Instructions
+
+Microbenchmark execution instructions are available in `spccl-bench`.
