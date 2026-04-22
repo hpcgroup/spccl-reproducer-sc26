@@ -1,4 +1,4 @@
-# SpCCL / NCCLX /SparCML Benchmarking Harness
+# SpCCL / NCCLX / SparCML Benchmarking Harness
 
 This is a snapshot of the microbenchmarking harness used to evaluate
 SpCCL, NCCLX, and SparCML. On Perlmutter, the following will build
