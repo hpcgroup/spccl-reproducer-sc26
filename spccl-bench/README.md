@@ -1,5 +1,11 @@
 # SpCCL / NCCLX / SparCML Benchmarking Harness
 
+***Reminder***: CCD and SPOP were placeholder names used during development for our
+collective library and sparse format, described in the final paper as SpCCL and
+Pici. Some materials in the reproducer still refer to CCD and SPOP.
+
+CCD=SpCCL, SPOP=Pici
+
 This is a snapshot of the microbenchmarking harness used to evaluate
 SpCCL, NCCLX, and SparCML. On Perlmutter, the following will build
 the binaries necessary for experiment reproduction. SpCCL, NCCLX,
@@ -39,12 +45,12 @@ For Figure 9 (all-reduce), SparCML results are included. Thus, scripts under
 ## CSV Field Reference
 
 Each batch script writes two CSV files under `results/{rs|ar|ag}/`:
-a CCD/NCCLX results file (`<coll>_<ngpus>_<jobid>.csv`) and a
+a CCD (SpCCL)/NCCLX results file (`<coll>_<ngpus>_<jobid>.csv`) and a
 nccl-tests baseline file (`<coll>_nccl_<ngpus>_<jobid>.csv`). The
 schemas differ. The meaning of fields relevant to reproduction
 are enumerated below.
 
-### CCD / NCCLX CSV (`<coll>_<ngpus>_<jobid>.csv`)
+### CCD (SpCCL) / NCCLX CSV (`<coll>_<ngpus>_<jobid>.csv`)
 
 **Run identification**
 - `jobid` — SLURM job ID
@@ -61,7 +67,7 @@ are enumerated below.
 - `sparsity_pct` — target sparsity in percent (0 = dense, 99 = 99% zeros)
 - `uniform_sparsity` — `1` if every rank has identical sparsity patterns; `0` if sparsity is randomized per rank
 
-**SpCCL/NCCLX configuration**
+**CCD (SpCCL)/NCCLX configuration**
 - `n_channels` — value of `NCCL_MIN/MAX_NCHANNELS` for the run (`0` if unset). These are set to the same value in
 microbenchmarks to fix a channel count.
 - `nccl_ccd_format_mask` — value of `NCCL_CCD_FORMAT_MASK` (1=dense-only, 2=COO non-adaptive, 3=COO adaptive, 4=SPOP/Pici non-adaptive, 5=SPOP/Pici adaptive). "Adaptive" means that the collective may swap data to a dense format during collective execution (relevant to reduce-scatter and all-reduce).
