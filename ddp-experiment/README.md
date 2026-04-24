@@ -63,6 +63,7 @@ export DATA_DIR="$SCRATCH/sparsecomms/gpt_data"
 | `MEGATRON_HOME` | Root of the Megatron-AxoNN repo |
 | `TORCHCOMMS_SPARSE_HOME` | Root of the torchcomms-sparse repo (contains `build/ncclx/`) |
 | `DATA_DIR` | Directory with `gpt2-vocab.json`, `gpt2-merges.txt`, and `BookCorpusDataset_text_document.{bin,idx}` |
+| `EXPERIMENTS_DIR` | Directory containing `base_job.sh` for the experiment suite. Defaults to `$(pwd)` — set it or `cd` into the experiment directory before submitting. |
 
 > **Note:** SpCCL Python wrappers read `TORCHCOMMS_SPARSE_HOME` at import time to locate the NCCLX library. Override individual paths with `NCCLX_BUILD_DIR` and `NCCLX_LIB_PATH` if needed (see `axonn/axonn/sparse_comms.py` and `axonn/axonn/ncclx_shim.py`).
 
@@ -72,8 +73,8 @@ Two experiment suites, differing only in model architecture:
 
 | Suite | Directory | Model | GPUs |
 |---|---|---|---|
-| 40 GB scaling | `breakdown_experiment_scaling/` | 1.5B (48L, 1600H, 25 heads) | A100 40 GB |
-| 80 GB scaling | `breakdown_experiment_scaling_80gb/` | 3.3B (28L, 3072H, 24 heads) | A100 80 GB |
+| 40 GB scaling | `experiments_40gb/` | 1.5B (48L, 1600H, 25 heads) | A100 40 GB |
+| 80 GB scaling | `experiments_80gb/` | 3.3B (28L, 3072H, 24 heads) | A100 80 GB |
 
 Each suite runs three configurations at 8 / 16 / 32 / 64 GPUs (2 / 4 / 8 / 16 nodes):
 
@@ -87,11 +88,11 @@ Submit with `sbatch`:
 
 ```bash
 # 40 GB experiments
-cd $MEGATRON_HOME/breakdown_experiment_scaling
+cd experiments_40gb
 sbatch submit_all.sh
 
 # 80 GB experiments
-cd $MEGATRON_HOME/breakdown_experiment_scaling_80gb
+cd experiments_80gb
 sbatch submit_all.sh
 ```
 
