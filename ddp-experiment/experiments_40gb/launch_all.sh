@@ -15,7 +15,7 @@ set -euo pipefail
 : "${MEGATRON_HOME:?Set MEGATRON_HOME to Megatron-AxoNN root}"
 EXPERIMENTS_DIR="${EXPERIMENTS_DIR:-$(pwd)}"
 BASE_JOB="$EXPERIMENTS_DIR/base_job.sh"
-LOG_DIR="/global/u1/e/egencer/scratch/sparsecomms/Megatron-AxoNN/logs"
+LOG_DIR="$MEGATRON_HOME/logs"
 MAX_JOBS="${MAX_JOBS:-0}"
 POLL_INTERVAL=60
 mkdir -p "$LOG_DIR"
@@ -88,11 +88,11 @@ submit() {
     fi
 }
 
-for NNODES in 2 4 8 16; do
+for NNODES in 2; do
     GPUS=$(( NNODES * 4 ))
     echo ""
     echo "=== ${GPUS} GPUs (${NNODES} nodes) ==="
-    for RUN in 1 2 3; do
+    for RUN in 1; do
         # submit $NNODES  dense_nobd        0  0  0  $RUN
         submit $NNODES  dense_bd          0  0  1  $RUN
         # submit $NNODES  sparse_noea_nobd  1  0  0  $RUN

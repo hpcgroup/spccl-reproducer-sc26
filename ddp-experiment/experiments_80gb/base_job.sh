@@ -25,6 +25,7 @@ NCHANNELS=64
 : "${MEGATRON_HOME:?Set MEGATRON_HOME to Megatron-AxoNN root}"
 cd "$MEGATRON_HOME"
 mkdir -p logs
+mkdir -p "${SPARSE_COMMS_BUILD_DIR:-${SCRATCH:-/tmp}/sparse_comms_build}"
 
 module load pytorch/2.8.0
 
