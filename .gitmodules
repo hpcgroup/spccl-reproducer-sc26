@@ -1,0 +1,8 @@
+[submodule "ddp-experiment/axonn"]
+	path = ddp-experiment/axonn
+	url = git@github.com:axonn-ai/axonn.git
+	branch = sparse-collectives
+[submodule "ddp-experiment/Megatron-AxoNN"]
+	path = ddp-experiment/Megatron-AxoNN
+	url = git@github.com:axonn-ai/Megatron-AxoNN.git
+	branch = sparse-collectives
